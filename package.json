@@ -1,0 +1,43 @@
+{
+  "name": "express-react-baseline",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "connect-mongo": "^2.0.3",
+    "dotenv": "^7.0.0",
+    "express": "~4.16.4",
+    "express-session": "^1.16.1",
+    "http-errors": "~1.7.2",
+    "jade": "~1.11.0",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.2",
+    "morgan": "~1.9.1",
+    "node-sass": "^4.11.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^2.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "spectre.css": "^0.5.8"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "react-scripts": "2.1.8"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "client": "react-scripts start",
+    "server": "nodemon --inspect server/server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prod": "export NODE_ENV=\"production\" && export CLIENT_URI=\"http://localhost:3001\" && nodemon server/server.js"
+  }
+}
