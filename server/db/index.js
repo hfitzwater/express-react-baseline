@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const MONGO_URL = process.env.MONGODB_URI;
+const MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost:27017/express-react-baseline';
 
 mongoose.connect( MONGO_URL, {
     useNewUrlParser: true

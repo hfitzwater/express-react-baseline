@@ -3,6 +3,7 @@ import './App.scss';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import axios from 'axios';
+import UserContext from './context/UserContext';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -53,38 +54,51 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <div className="App">
-                    <Header User={this.state.user} />
+            <UserContext.Provider value={this.state.user}>
+                <BrowserRouter>
+                    <div className="App">
+                        <Header User={this.state.user} LogoutFunc={this.logout} />
 
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/login" component={Login} />
-                    {
-                        this.state.user &&
-                        <button onClick={this.logout}>
-                            Logout
-                        </button>
-                    }
-                </div>
-            </BrowserRouter>
+                        <div className="container main">
+                            <div className="columns">
+                                <div className="column col-md-12">
+                                    <Route exact path="/" component={Home} />
+                                    <Route exact path="/login" component={Login} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </BrowserRouter>
+            </UserContext.Provider>
         );
     }
 }
 
-function Header({ User }) {
-  return (
-    <ul>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      {
-        !User &&
-        <li>
-            <Link to="/login">Login</Link>
-        </li>
-      }
-    </ul>
-  );
+function Header({ User, LogoutFunc }) {
+    return (
+        <div className="navbar">
+            <section className="navbar-section">
+                <Link to="/">Home</Link>
+            </section>
+            <section className="navbar-center">
+                <div className="app-name">
+                    { 'express-react-baseline' }
+                </div>
+            </section>
+            <section className="navbar-section">
+                {
+                    !User &&
+                    <Link to="/login">Sign In</Link>
+                }
+                {
+                    User &&
+                    <a href="#" onClick={LogoutFunc}>
+                        Logout
+                    </a>
+                }
+            </section>
+        </div>
+    );
 }
 
 export default App;

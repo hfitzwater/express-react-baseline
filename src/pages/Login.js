@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import signInImg from '../google_signin.png';
 
 export default class Login extends Component {
     render() {
         return (
             <div className="LoginForm">
                 <a href="/auth/google">
-                    Login with Google
+                    <img height="40px" src={signInImg} alt="Sign In"></img>
                 </a>
             </div>
         );
