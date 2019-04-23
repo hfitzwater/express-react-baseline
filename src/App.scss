@@ -2,6 +2,10 @@
 @import '~spectre.css/src/spectre-icons';
 @import '~spectre.css/src/spectre-exp';
 
+$gray: #dfdfdf;
+$dark-gray: #cecece;
+$dark: #3e3e3e;
+
 .App {
     padding: 10px;
 
@@ -9,9 +13,109 @@
         font-weight: bold;
     }
 
-    .main {
-        padding: 10px;
+    .left {
+        float: left;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .menu-badge {
+        float: right;
+        margin-right: 8px;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    .full-width {
         width: 100%;
+    }
+
+    .full-height {
+        height: 100%;
+    }
+
+    .center {
         text-align: center;
+    }
+
+    .no-margin {
+        margin: 0px;
+    }
+
+    .no-padding {
+        padding: 0px;
+    }
+}
+
+.dashboard {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+    .fill-vertical {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .top {
+            width: 100%;
+            background-color: $dark;
+            color: $gray;
+        }
+
+        .fill-horizontal {
+            width: 100%;
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: row;
+
+            .gutter {
+                position: absolute;
+                top: 0px;
+                cursor: ew-resize;
+                height: 100%;
+                background-color: $dark-gray;
+                width: 2px;
+            }
+
+            .left-panel {
+                overflow: hidden;
+                position: relative;
+                min-width: 140px;
+
+                .gutter {
+                    right: 0px;
+                }
+
+            }
+            .main-panel {
+                flex: 1 0 auto;
+            }
+            .right-panel {
+                overflow: hidden;
+                position: relative;
+                min-width: 140px;
+
+                .gutter {
+                    left: 0px;
+                }
+            }
+        }
+
+        .bottom-panel {
+            width: 100%;
+            background-color: $dark;
+            color: $gray;
+            font-size: smaller;
+        }
     }
 }

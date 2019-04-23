@@ -21,8 +21,7 @@ app.use(
         store: new MongoStore({
             mongooseConnection: dbConnection
         }),
-        resave: false,
-        saveUnititialized: false
+        resave: false
     })
 );
 

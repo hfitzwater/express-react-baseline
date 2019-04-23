@@ -18,7 +18,7 @@ export default class Home extends Component {
             <UserContext.Consumer>
                 {
                     (user) => (
-                        <div>
+                        <div className="home full-width center">
                             <div>
                                 {
                                     user && 
@@ -32,7 +32,7 @@ export default class Home extends Component {
                                     { !user && 'Please Sign in to ' }
                                 </span>
                             }
-                            <button onClick={this.hello}>
+                            <button className="btn btn-primary" onClick={this.hello}>
                                 Say Hello
                             </button>
                         </div>

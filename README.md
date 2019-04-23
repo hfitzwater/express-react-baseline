@@ -1,5 +1,5 @@
 ## express-react-baseline
-Boilerplate web application including Node, Express, MongoDB, Passport, React, Spectre.css, Sass.
+Dashboard style boilerplate web application including Node, Express, MongoDB, Passport, React, Spectre.css, Sass.
 
 ### Prerequisites
 * [MongoDB](https://www.mongodb.com/): local or remote
